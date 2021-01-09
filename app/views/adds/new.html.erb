@@ -1,0 +1,14 @@
+<%= form_for @add do |f| %>
+	<%= f.label "Add Name"%>
+	<%= f.text_field :name %><br>
+	<%= f.hidden_field :adboard_id, value: @add.adboard_id %>
+	<%= f.label "Add Category"%>
+	<%= f.select :ads_category_id, options_for_select(AdsCategory.all.collect{|ad| [ad.ads_type, ad.id]}), :prompt => "Select One"%><br>
+	<%= f.label "Add Size"%>
+	<%= f.select :ads_size_id, options_for_select(AdsSize.all.collect{|ad| [ad.ads_size, ad.id]}), :prompt => "Select One"%><br>
+	<%= f.label "Add Duration"%>
+
+	<%= f.label "Add Duration in min"%>
+	<%= f.number_field :ads_duration %><br>
+	<%= f.submit %>
+<% end %>
